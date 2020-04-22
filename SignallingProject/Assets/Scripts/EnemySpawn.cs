@@ -6,6 +6,7 @@ public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] private Transform _spawnPoints;
     [SerializeField] private Enemy _enemy;
+    [SerializeField] private float _spawnTime;
 
     private Transform[] _points;
     private int _currentPoint;
@@ -35,7 +36,7 @@ public class EnemySpawn : MonoBehaviour
                 _currentPoint = 0;
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(_spawnTime);
         }
     }
 }
