@@ -19,14 +19,7 @@ public class Door : MonoBehaviour
     {
         if (collision.TryGetComponent<Player>(out Player player))
         {
-            if (IsReached)
-            {
-                IsReached = false;
-            }
-            else
-            {
-                IsReached = true;
-            }
+            IsReached = !IsReached;
 
             _reached.Invoke();
         }

@@ -38,15 +38,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(_speed * Time.deltaTime, 0, 0);
-            _sprite.flipX = false;
-            _animator.SetBool("isRunning", true);
+            Run(Vector3.right, false);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
-            _sprite.flipX = true;
-            _animator.SetBool("isRunning", true);         
+            Run(Vector3.left, true);     
         }
         else
         {
@@ -57,6 +53,13 @@ public class PlayerMovement : MonoBehaviour
         {
             _rigidbody2D.velocity = Vector2.up * _jumpForce;
         }
+    }
+
+    private void Run(Vector3 directionX, bool IsFlipSprite)
+    {
+        transform.Translate(directionX * _speed * Time.deltaTime);
+        _sprite.flipX = IsFlipSprite;
+        _animator.SetBool("isRunning", true);
     }
 
     private bool IsGrounded()
