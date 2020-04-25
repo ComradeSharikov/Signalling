@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource), typeof(Door))]
+[RequireComponent(typeof(AudioSource))]
 public class Signalling : MonoBehaviour
 {
     [SerializeField] private Door _door;
@@ -24,7 +24,6 @@ public class Signalling : MonoBehaviour
 
     private void Start()
     {
-        _door = GetComponent<Door>();
         _audioSource = GetComponent<AudioSource>();
     }
 
